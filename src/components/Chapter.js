@@ -5,10 +5,14 @@ import { Entypo } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 
-export default function Chapter({ chapter }) {
+export default function Chapter({ chapter, onPress = () => {} }) {
   return (
     <View key={chapter.chapter_number}>
-      <TouchableOpacity style={styles.chapter} activeOpacity={0.7}>
+      <TouchableOpacity
+        style={styles.chapter}
+        activeOpacity={0.7}
+        onPress={onPress}
+      >
         <View style={styles.chapterSubContainer}>
           <View style={styles.chapterNumber}>
             <Text style={styles.chapterNumberText}>
@@ -56,13 +60,16 @@ const styles = StyleSheet.create({
   chapterNumberText: {
     fontSize: totalSize(1.8),
     color: colors.primary,
+    fontFamily: "serif",
+    fontWeight: "600",
   },
   chapterTitle: {
     paddingLeft: width(5),
   },
   chapterTitleText: {
     fontSize: totalSize(1.8),
-    fontWeight: "bold",
+    fontFamily: "serif",
+    fontWeight: "600",
   },
   verses_container: {
     flexDirection: "row",

@@ -4,6 +4,7 @@ const colors = {
   lightPrimary: "#fff5eb",
   tika: "#FF4500",
   gray: "#36454F",
+  white: "#fff",
 };
 
 export default colors;

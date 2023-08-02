@@ -20,7 +20,7 @@ export default function useFetch(url) {
 
   useEffect(() => {
     fetchUrl();
-  }, [url]);
+  }, []);
 
   return { data, loading, error };
 }

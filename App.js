@@ -1,9 +1,8 @@
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import ChaptersScreen from "./src/screens/ChaptersScreen";
+import StackNavigation from "./src/navigation/StackNavigation";
 
 export default function App() {
-  return <ChaptersScreen />;
+  return <StackNavigation />;
 }
 
 const styles = StyleSheet.create({

@@ -14,9 +14,19 @@ import colors from "../config/colors";
 import { generateRandomChapter, generateRandomVerse } from "../utils/random";
 import useFetch from "../hooks/useFetch";
 import Chapter from "../components/Chapter";
+import { useState } from "react";
 
 export default function ChaptersScreen() {
   const navigation = useNavigation();
+  const homeThumbnail = [
+    "https://t4.ftcdn.net/jpg/05/75/84/99/360_F_575849931_j0h5pEWF8XMd9OhGZhbODPL1ELaMQR75.jpg",
+    "https://t4.ftcdn.net/jpg/05/75/84/99/360_F_575849931_j0h5pEWF8XMd9OhGZhbODPL1ELaMQR75.jpg",
+    "https://t4.ftcdn.net/jpg/05/75/84/99/360_F_575849931_j0h5pEWF8XMd9OhGZhbODPL1ELaMQR75.jpg",
+    "https://vedicfeed.com/wp-content/uploads/2018/07/Lessons-from-Mahabharata-e1491580856181.jpg",
+  ];
+  const [thumbnail, setThumbnail] = useState(
+    homeThumbnail[Math.floor(Math.random() * homeThumbnail.length)]
+  );
   const { data, loading, error } = useFetch(`/chapters`);
   const {
     data: slok,
@@ -31,7 +41,7 @@ export default function ChaptersScreen() {
       <View style={styles.imageContainer}>
         <Image
           source={{
-            uri: "https://pbs.twimg.com/media/ES1eZKMU0AELDVE.png",
+            uri: thumbnail,
           }}
           style={styles.image}
         />
@@ -66,6 +76,7 @@ export default function ChaptersScreen() {
               onPress={() =>
                 navigation.navigate("VersesScreen", {
                   chapterNumber: chapter.chapter_number,
+                  totalVerses: chapter.verses_count,
                 })
               }
             />

@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const baseURL = "https://bhagavadgitaapi.in";
+
 const client = axios.create({
-  baseURL: "https://bhagavadgitaapi.in",
+  baseURL,
 });
 
 export default client;

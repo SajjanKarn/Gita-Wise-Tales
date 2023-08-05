@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // screens
 import ChaptersScreen from "../screens/ChaptersScreen";
 import VersesScreen from "../screens/VersesScreen";
+import SlokScreen from "../screens/SlokScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,7 +19,20 @@ const StackNavigation = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="VersesScreen" component={VersesScreen} />
+        <Stack.Screen
+          name="VersesScreen"
+          component={VersesScreen}
+          options={{
+            headerTitle: "",
+          }}
+        />
+        <Stack.Screen
+          name="SlokScreen"
+          component={SlokScreen}
+          options={{
+            headerTitle: "",
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
